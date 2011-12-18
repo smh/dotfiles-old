@@ -1,0 +1,63 @@
+" Scrollbars ******************************************************************
+set sidescrolloff=2
+set numberwidth=4
+
+let mapleader = ","
+
+" Windows *********************************************************************
+set equalalways " Multiple windows, when created, are equal in size
+set splitbelow splitright
+
+" Vertical and horizontal split then hop to a new buffer
+" :noremap <Leader>v :vsp^M^W^W<cr>
+" :noremap <Leader>h :split^M^W^W<cr>
+:noremap <Leader>v :vsp<cr>
+:noremap <Leader>h :split<cr>
+
+" Cursor highlights ***********************************************************
+set cursorline
+"set cursorcolumn
+
+:noremap <Leader>i :set list!<CR> " Toggle invisible chars
+
+"color smh
+"set background=light
+"set background=light
+color solarized
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Support ledger filetype
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+
+
+" Number of colums that will be used to display the foldtext.
+" Set this when you think that the amount is too far off to the right.
+"let g:ledger_maxwidth = 80
+
+" String that will be used to fill the space between account name
+" and amount in the foldtext. Set this to get some kind of lines
+" or visual aid.
+"let g:ledger_fillstring = '    -'
+let g:ledger_fillstring = '·'
+"  My special tip is to use so-called digraphs:
+"  Press <C-K> followed by the two-characters key sequence below.
+"  (in insert-mode)
+"    '. = ˙ or ': = ¨ --> ˙˙˙˙˙˙ or ¨¨¨¨¨¨
+"    ', = ¸           --> ¸¸¸¸¸¸
+"    .M = ·           --> ······
+"    >> = »           --> »»»»»»
+"  All those look rather unobstrusive
+"  and provide a good visual aid to find the correct amount.
+
+" If you want the account completion to be sorted by level of detail/depth
+" instead of alphabetical, include the following line:
+let g:ledger_detailed_first = 1
+

@@ -1,0 +1,16 @@
+let mapleader = ","
+
+call janus#disable_plugin('pep8')
+
+"set shell=/bin/sh
+
+" Turn on jshint errors by default
+""let g:JSLintHighlightErrorLine = 1
+
+"let g:syntastic_quiet_warnings=0
+"sign define SyntasticError text=>> icon=/Users/smh/.vim-signs/error.png
+"sign define SyntasticWarning text=>> icon=/Users/smh/.vim-signs/warning.png
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
