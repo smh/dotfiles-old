@@ -1,3 +1,12 @@
 [submodule ".janus/tabular"]
 	path = .janus/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule ".janus/vim-jade"]
+	path = .janus/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
+[submodule ".janus/csv.vim"]
+	path = .janus/csv.vim
+	url = https://github.com/chrisbra/csv.vim.git
+[submodule ".janus/vim-stylus.git"]
+	path = .janus/vim-stylus.git
+	url = https://github.com/wavded/vim-stylus.git
