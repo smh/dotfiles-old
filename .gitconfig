@@ -1,0 +1,19 @@
+[core]
+	excludesfile = /Users/smh/.gitignore
+[user]
+	name = Stein Martin Hustad
+	email = stein@hustad.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[merge]
+    tool = mvim
+[mergetool "mvim"]
+    cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+[github]
+	user = smh
+	token = 5ecec067e4428684d7a4dcdf7c97e8be
+[web]
+	browser = open

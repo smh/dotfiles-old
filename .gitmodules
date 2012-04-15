@@ -19,3 +19,6 @@
 [submodule ".janus/taskpaper.vim.git"]
 	path = .janus/taskpaper.vim.git
 	url = https://github.com/davidoc/taskpaper.vim.git
+[submodule ".janus/yaml-vim.git"]
+	path = .janus/yaml-vim.git
+	url = https://github.com/ingydotnet/yaml-vim.git
