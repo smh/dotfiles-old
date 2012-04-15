@@ -22,3 +22,6 @@
 [submodule ".janus/yaml-vim.git"]
 	path = .janus/yaml-vim.git
 	url = https://github.com/ingydotnet/yaml-vim.git
+[submodule ".janus/vim-powerline.git"]
+	path = .janus/vim-powerline.git
+	url = https://github.com/Lokaltog/vim-powerline.git
