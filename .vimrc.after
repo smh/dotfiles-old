@@ -22,7 +22,7 @@ set cursorline
 
 "color smh
 "set background=light
-"set background=light
+set background=dark
 color solarized
 
 " Show syntax highlighting groups for word under cursor

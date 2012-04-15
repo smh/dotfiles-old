@@ -29,13 +29,15 @@ export ZSH_THEME="juanghurtado"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 if [[ `uname` == "Darwin" ]]; then
   plugins=(git osx ruby node npm rails3 rake rvm github git-flow autojump brew taskwarrior lol)
 else
-  plugins=(git ruby node npm rails3 rake rvm github git-flow autojump brew ssh-agent taskwarrior command-not-found lol)
+  plugins=(git ssh-agent ruby node npm rails3 rake rvm github git-flow autojump brew taskwarrior command-not-found lol)
 fi
 
 source $ZSH/oh-my-zsh.sh
