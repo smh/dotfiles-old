@@ -21,17 +21,17 @@ export ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby node npm rails3 rvm github git-flow autojump brew)
+plugins=(git osx ruby node npm rails3 rake rvm github git-flow autojump brew ssh-agent taskwarrior)
 
 export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-[[ -s "/Users/smh/.rvm/scripts/rvm" ]] && source "/Users/smh/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"  # This loads NVM into a shell session.
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/share/npm/bin:/opt/local/bin:/opt/subversion/bin:/opt/local/sbin:/Users/smh/Tools/maven/bin:/Library/PostgreSQL8/bin:/Users/smh/cl/bin:/Users/smh/.rvm/bin:/Users/smh/.cabal/bin
+export PATH=$HOME/.cabal/bin:$HOME/Tools/maven/bin:$PATH
 export LANG=en_US.UTF-8
 
 __rvm_project_rvmrc
-. ~/.nvm/nvm.sh
