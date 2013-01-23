@@ -49,7 +49,8 @@ export EDITOR=vim
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"  # This loads NVM into a shell session.
 
-export PATH=$HOME/.cabal/bin:$HOME/Tools/maven/bin:$PATH
+export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+export PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/Tools/maven/bin:/usr/local/bin:/usr/local/share/python:$PATH
 export LANG=en_US.UTF-8
 
 __rvm_project_rvmrc
@@ -71,3 +72,10 @@ then
     alias ping='colourify ping'
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
+
+# corrections are usually wrong!
+unsetopt correct_all
+
+alias tmux="TERM=screen-256color-bce tmux"
+export SBT_OPTS="-XX:MaxPermSize=256m"
+. ~/nvm/nvm.sh

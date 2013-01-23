@@ -20,10 +20,20 @@ set cursorline
 
 :noremap <Leader>i :set list!<CR> " Toggle invisible chars
 
+" continuous line for vertical split line
+"set fillchars=vert:\│
+" hide vertical split line
+set fillchars=vert:\ 
+set fillchars+=stl:\ ,stlnc:\ 
+
 "color smh
 "set background=light
 set background=dark
+let g:solarized_termcolors=16
+"let g:solarized_visibility="high"
+"let g:solarized_contrast="high"
 color solarized
+
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -61,3 +71,6 @@ let g:ledger_fillstring = '·'
 " instead of alphabetical, include the following line:
 let g:ledger_detailed_first = 1
 
+" powerline statusbar
+python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
+python from powerline.bindings.vim import source_plugin; source_plugin()

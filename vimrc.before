@@ -2,7 +2,7 @@ let mapleader = ","
 
 call janus#disable_plugin('pep8')
 
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 "set shell=/bin/sh
 
 " Turn on jshint errors by default

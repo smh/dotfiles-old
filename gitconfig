@@ -16,3 +16,4 @@
 	user = smh
 [web]
 	browser = open
+[http]
