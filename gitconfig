@@ -16,4 +16,5 @@
 	user = smh
 [web]
 	browser = open
-[http]
+[push]
+	default = simple

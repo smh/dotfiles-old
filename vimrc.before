@@ -1,4 +1,6 @@
 let mapleader = ","
+set nofoldenable
+set relativenumber
 
 call janus#disable_plugin('pep8')
 

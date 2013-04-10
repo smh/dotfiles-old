@@ -2,6 +2,9 @@
 set sidescrolloff=2
 set numberwidth=4
 
+set nofoldenable
+set relativenumber
+
 let mapleader = ","
 
 " Windows *********************************************************************

@@ -21,6 +21,10 @@ set guioptions-=r " remove right scrollbars
 
 set columns=180
 set lines=50
+
+" Keep buffergator from resizing window!
+let g:buffergator_autoexpand_on_split=0
+
 "color ir_black
 set background=dark
 color solarized
