@@ -25,6 +25,8 @@ Bundle 'skwp/vim-ruby-conque'
 Bundle 'LustyJuggler'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'ledger/vim-ledger'
 
 filetype plugin indent on
 
@@ -73,6 +75,8 @@ let g:solarized_termcolors=16
 "let g:solarized_visibility="high"
 "let g:solarized_contrast="high"
 color solarized
+
+let g:ledger_fillstring = '·'
 
 " powerline statusbar
 "python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
