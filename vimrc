@@ -79,5 +79,4 @@ color solarized
 let g:ledger_fillstring = '·'
 
 " powerline statusbar
-"python import sys; sys.path.append("/usr/local/lib/python2.7/site-packages/")
-"python from powerline.bindings.vim import source_plugin; source_plugin()
+set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
