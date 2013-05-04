@@ -4,12 +4,9 @@ require 'erb'
 desc "install the dot files into user's home directory"
 task :install do
   install_oh_my_zsh
-  install_janus
   switch_to_zsh
   replace_all = false
   files = Dir['*'] - %w[Rakefile README.rdoc LICENSE oh-my-zsh iterm]
-#  files << "oh-my-zsh/custom/plugins/rbates"
-#  files << "oh-my-zsh/custom/rbates.zsh-theme"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
@@ -87,24 +84,6 @@ def install_oh_my_zsh
       exit
     else
       puts "skipping oh-my-zsh, you will need to change ~/.zshrc"
-    end
-  end
-end
-
-def install_janus
-  if File.exist?(File.join(ENV['HOME'], ".vim"))
-    puts "found ~/.vim"
-  else
-    print "install janus? [ynq] "
-    case $stdin.gets.chomp
-    when 'y'
-      puts "installing janus"
-      system %Q{git clone https://github.com/carlhuda/janus.git "$HOME/.vim"}
-      system "cd $HOME/.vim && rake"
-    when 'q'
-      exit
-    else
-      puts "skipping janus"
     end
   end
 end
