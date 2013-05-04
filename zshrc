@@ -53,8 +53,6 @@ export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/Tools/maven/bin:/usr/local/bin:/usr/local/share/python:$PATH
 export LANG=en_US.UTF-8
 
-__rvm_project_rvmrc
-
 # cat `brew --prefix`/etc/grc.bashrc
 GRC=`which grc`
 if [ "$TERM" != dumb ] && [ -n GRC ]
@@ -79,3 +77,5 @@ unsetopt correct_all
 alias tmux="TERM=screen-256color-bce tmux"
 export SBT_OPTS="-XX:MaxPermSize=256m"
 . ~/nvm/nvm.sh
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
