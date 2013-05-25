@@ -18,7 +18,7 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vimwiki'
 Bundle 'kien/ctrlp.vim'
-Bundle 'skammer/vim-css-color'
+"Bundle 'skammer/vim-css-color' " causing slow loading of html files
 Bundle 'mileszs/ack.vim'
 Bundle 'rson/vim-conque'
 Bundle 'skwp/vim-ruby-conque'
@@ -27,6 +27,7 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'ledger/vim-ledger'
+Bundle 'othree/html5.vim'
 
 filetype plugin indent on
 
