@@ -35,7 +35,7 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 if [[ `uname` == "Darwin" ]]; then
-  plugins=(git osx ruby node npm rails3 rake rvm github git-flow autojump brew taskwarrior lol)
+  plugins=(git osx ruby node npm rails3 rake rbenv github git-flow autojump brew taskwarrior lol)
 else
   plugins=(git ssh-agent ruby node npm rails3 rake rvm github git-flow autojump brew taskwarrior command-not-found lol)
 fi
