@@ -13,14 +13,16 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vimwiki'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'skammer/vim-css-color' " causing slow loading of html files
 Bundle 'mileszs/ack.vim'
-Bundle 'rson/vim-conque'
+Bundle 'basepi/vim-conque'
 Bundle 'skwp/vim-ruby-conque'
 Bundle 'LustyJuggler'
 Bundle 'rodjek/vim-puppet'
@@ -28,6 +30,11 @@ Bundle 'godlygeek/tabular'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'ledger/vim-ledger'
 Bundle 'othree/html5.vim'
+"Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'elzr/vim-json'
+au BufNewFile,BufRead *.json setf json
+Bundle 'editorconfig/editorconfig'
 
 filetype plugin indent on
 
@@ -68,14 +75,31 @@ let mapleader = ","
 map <leader>n :NERDTreeToggle<CR>
 map <leader>v :vsplit<CR>
 map <leader>h :split<CR>
+map <leader>m :TagbarToggle<CR>
 
 map <leader>gs :Gstatus<CR>
+
+map <D-/> :NERDComInvertComment<CR>
 
 set background=dark
 let g:solarized_termcolors=16
 "let g:solarized_visibility="high"
 "let g:solarized_contrast="high"
 color solarized
+
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+"au FileType javascript call JavaScriptFold()
 
 let g:ledger_fillstring = '·'
 
