@@ -62,8 +62,12 @@ export SBT_OPTS="-XX:MaxPermSize=256m"
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
-# cat `brew --prefix`/etc/grc.bashrc
-source "`brew --prefix`/etc/grc.bashrc"
+if [[ `uname` == "Darwin" ]]; then
+  # cat `brew --prefix`/etc/grc.bashrc
+  source "`brew --prefix`/etc/grc.bashrc"
+else
+fi
+
 GRC=`which grc`
 if [ "$TERM" != dumb ] && [ -n GRC ]
 then
@@ -81,6 +85,8 @@ then
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
 
-export JAVA_HOME=`/usr/libexec/java_home`
+if [ -x /usr/libexex/java_home ]; then
+  export JAVA_HOME=`/usr/libexec/java_home`
+fi
 
 eval "$(direnv hook zsh)"
