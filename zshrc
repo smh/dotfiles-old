@@ -35,9 +35,9 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 if [[ `uname` == "Darwin" ]]; then
-  plugins=(git osx ruby node npm rails3 rake rbenv github git-flow autojump brew taskwarrior lol)
+  plugins=(git osx ruby node npm rails rake rbenv github git-flow autojump brew taskwarrior lol)
 else
-  plugins=(git ssh-agent ruby node npm rails3 rake rvm github git-flow autojump brew taskwarrior command-not-found lol)
+  plugins=(git ssh-agent ruby node npm rails rake rvm github git-flow autojump brew taskwarrior command-not-found lol)
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -81,3 +81,6 @@ then
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
 
+export JAVA_HOME=`/usr/libexec/java_home`
+
+eval "$(direnv hook zsh)"

@@ -35,6 +35,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'elzr/vim-json'
 au BufNewFile,BufRead *.json setf json
 Bundle 'editorconfig/editorconfig'
+Bundle 'suan/vim-instant-markdown'
 
 filetype plugin indent on
 
@@ -88,7 +89,8 @@ let g:solarized_termcolors=16
 color solarized
 
 set foldmethod=syntax
-set foldlevelstart=1
+"set foldlevelstart=1
+autocmd Syntax javascript,json,c,java,ruby,python,clojure normal zR
 
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -101,7 +103,11 @@ let xml_syntax_folding=1      " XML
 
 "au FileType javascript call JavaScriptFold()
 
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute "]
+"let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
 let g:ledger_fillstring = '·'
 
 " powerline statusbar
 set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
+execute pathogen#infect()
