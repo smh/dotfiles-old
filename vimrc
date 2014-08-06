@@ -1,41 +1,43 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vimwiki'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'skammer/vim-css-color' " causing slow loading of html files
-Bundle 'mileszs/ack.vim'
-Bundle 'basepi/vim-conque'
-Bundle 'skwp/vim-ruby-conque'
-Bundle 'LustyJuggler'
-Bundle 'rodjek/vim-puppet'
-Bundle 'godlygeek/tabular'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'ledger/vim-ledger'
-Bundle 'othree/html5.vim'
-"Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'elzr/vim-json'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vimwiki'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'skammer/vim-css-color' " causing slow loading of html files
+Plugin 'mileszs/ack.vim'
+Plugin 'basepi/vim-conque'
+Plugin 'skwp/vim-ruby-conque'
+Plugin 'LustyJuggler'
+Plugin 'rodjek/vim-puppet'
+Plugin 'godlygeek/tabular'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'ledger/vim-ledger'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
 au BufNewFile,BufRead *.json setf json
-Bundle 'editorconfig/editorconfig'
-Bundle 'suan/vim-instant-markdown'
+Plugin 'editorconfig/editorconfig'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
 
 filetype plugin indent on
 
@@ -101,6 +103,10 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['foo', 'bar'],
+                           \ 'passive_filetypes': ['java'] }
+
 "au FileType javascript call JavaScriptFold()
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute "]
@@ -108,6 +114,7 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute "]
 
 let g:ledger_fillstring = '·'
 
+let g:airline_powerline_fonts = 1
 " powerline statusbar
-set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
-execute pathogen#infect()
+"set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
+""execute pathogen#infect()
