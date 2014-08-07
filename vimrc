@@ -19,6 +19,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 Plugin 'vimwiki'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'skammer/vim-css-color' " causing slow loading of html files
@@ -84,11 +85,14 @@ map <leader>gs :Gstatus<CR>
 
 map <D-/> :NERDComInvertComment<CR>
 
-set background=dark
-let g:solarized_termcolors=16
+"set background=dark
+"let g:solarized_termcolors=16
 "let g:solarized_visibility="high"
 "let g:solarized_contrast="high"
-color solarized
+"color solarized
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
 
 set foldmethod=syntax
 "set foldlevelstart=1
