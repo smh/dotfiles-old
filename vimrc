@@ -38,6 +38,14 @@ au BufNewFile,BufRead *.json setf json
 Plugin 'editorconfig/editorconfig'
 Plugin 'airblade/vim-gitgutter'
 
+" Clojure stuff
+Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-leiningen'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -122,3 +130,9 @@ let g:airline_powerline_fonts = 1
 " powerline statusbar
 "set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
 ""execute pathogen#infect()
+
+"nnoremap <silent> <c-w h> :TmuxNavigateLeft<cr>
+"nnoremap <silent> <c-w j> :TmuxNavigateDown<cr>
+"nnoremap <silent> <c-w k> :TmuxNavigateUp<cr>
+"nnoremap <silent> <c-w l> :TmuxNavigateRight<cr>
+"nnoremap <silent> <c-w \\> :TmuxNavigatePrevious<cr>
