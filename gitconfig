@@ -1,20 +1,41 @@
+
+[hub]
+protocol = https
+
 [core]
-	excludesfile = /Users/smh/.gitignore
+excludesfile = /opt/boxen/config/git/gitignore
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
 [user]
-	name = Stein Martin Hustad
-	email = stein@hustad.com
+  name = Stein Martin Hustad
+  email = stein@hustad.com
+
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
 [merge]
-    tool = mvim
+  tool = mvim
+
+[mergetool]
+  keepBackup = true
+
 [mergetool "mvim"]
-    cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+  cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+
 [github]
-	user = smh
+  user = smh
+
 [web]
-	browser = open
+  browser = open
+
 [push]
-	default = simple
+  default = simple
+
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f

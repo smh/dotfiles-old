@@ -1,0 +1,9 @@
+vagrant.d/boxes
+vagrant.d/data
+vagrant.d/gems
+vagrant.d/insecure_private_key
+vagrant.d/license-vagrant-vmware-fusion.lic
+vagrant.d/plugins.json
+vagrant.d/rgloader
+vagrant.d/setup_version
+vagrant.d/tmp

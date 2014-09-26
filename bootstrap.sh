@@ -42,7 +42,7 @@ function install {
   $SOURCE_DIR/install-prezto.sh
   $SOURCE_DIR/install-vundle.sh
   echo "Installing dotfile symlinks..."
-  for path in vimrc tmux.conf inputrc gitconfig vagrant.d jshintrc; do
+  for path in vimrc tmux.conf inputrc gitconfig vagrant.d jshintrc doingrc; do
     # If dotfile lives in subdirectory, check that it exists/create it
     #target_subdir=$TARGET_DIR/.$(dirname $path)
     #if [ ! -d $target_subdir ] && ! $dryrun; then

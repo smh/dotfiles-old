@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 echo "Installing prezto..."
-if [ ! -e ${ZDOTDIR:-$HOM}/.zprezto ]; then
+if [ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]; then
   git clone --recursive https://github.com/smh/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
