@@ -50,7 +50,10 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'wakatime/vim-wakatime'
 
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+endif
+
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'SirVer/ultisnips'
@@ -80,7 +83,9 @@ set laststatus=2
 set lazyredraw
 set backspace=2
 set hlsearch
-set inccommand=nosplit
+if has('nvim')
+  set inccommand=nosplit
+endif
 set encoding=utf8
 
 " Windows *********************************************************************
@@ -118,9 +123,17 @@ map <leader>f :Files<cr>
 "let g:solarized_visibility="high"
 "let g:solarized_contrast="high"
 "color solarized
-set background=dark
-let base16colorspace=256
-colorscheme base16-default-dark
+
+"set background=dark
+"let base16colorspace=256
+"colorscheme base16-default-dark
+
+
+" load base16 colorscheme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 "}}}
 
@@ -327,10 +340,7 @@ let g:neomake_javascript_maker = {
 
 " VimWiki ------------------------------------ {{{
 let g:vimwiki_list = [{'path': '~/Dropbox/Private/vimwiki'}]
-"}}}
-
-" load base16 colorscheme
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+if has("win32unix")
+  let g:vimwiki_list = [{'path': '~/vimwiki'}]
 endif
+"}}}
