@@ -1,8 +1,5 @@
 [include]
-path = ~/.gitconfig.local
-
-[hub]
-protocol = https
+  path = ~/.gitconfig.local
 
 [user]
   name = Stein Martin Hustad
@@ -35,3 +32,17 @@ protocol = https
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
+
+[log]
+  date = relative
+
+[format]
+  pretty = format:%C(yellow)%h %Cblue%>(13)%ad %Cgreen%<(9)%aN%Cred%d %Creset%s
+
+[status]
+  short = true
+  branch = true
+
+[alias]
+  s = status --short
+  st = status --long
