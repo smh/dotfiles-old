@@ -12,7 +12,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-sensible'
+if !has('nvim')
+  Plug 'tpope/vim-sensible'
+endif
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
@@ -231,12 +233,15 @@ augroup end
 
 " tern
 if exists('g:plugs["tern_for_vim"]')
+  let g:tern_map_keys=1
   let g:tern_show_argument_hints = 'on_hold'
   let g:tern_show_signature_in_pum = 1
   let g:tern#command = ["tern"]
   let g:tern#arguments = ["--persistent"]
 
   autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+
 endif
 
 " update navigation keys
@@ -319,18 +324,72 @@ let g:NERDTreeIndicatorMapCustom = {
 "}}}
 
 set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h11
+
 let g:webdevicons_enable = 1
 " adding the flags to NERDTree 
 let g:webdevicons_enable_nerdtree = 1
 
+" use double-width(1) or single-width(0) glyphs
+" only manipulates padding, has no effect on terminal or set(guifont) font
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+" Force extra padding in NERDTree so that the filetype icons line up vertically 
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+" enable folder/directory glyph flag (disabled by default with 0)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
 " Neomake ------------------------------------{{{
+
+function! s:findRootPackageJsonFolder() abort
+  " Try to use nearest first; findfile .; goes from current file upwards
+  let l:filepath = findfile('package.json', '.;')
+  if empty(l:filepath)
+    return ''
+  else
+    return fnamemodify(resolve(expand(l:filepath)), ':h')
+  endif
+endfunction
+
+" Sets b:neomake_javascript_enabled_makers based on what is present in the
+" project
+function! s:setupEslint() abort
+    if !exists('b:neomake_javascript_eslint_exe')
+      let l:rootFolder = s:findRootPackageJsonFolder()
+      let l:eslint = l:rootFolder . '/node_modules/eslint/bin/eslint.js'
+      if !empty(l:rootFolder)
+        if filereadable(l:eslint)
+          let b:neomake_javascript_eslint_exe = l:eslint
+        else
+          let b:neomake_javascript_eslint_exe = 'eslint'
+        endif
+      else
+        let b:neomake_javascript_eslint_exe = 'eslint'
+      endif
+    endif
+endfunction
+
+autocmd! BufNewFile,BufReadPre * call s:setupEslint()
 
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_javascript_eslint_exe = system('npm root') .'/eslint/bin/eslint.js'
 "let g:neomake_javascript_maker = 'npm run lint'
-"let g:neomake_open_list = 2
+"let g:neomake_open_list = '2
+"let g:neomake_javascript_eslint_maker = {
+  "\ 'exe': 'yarn',
+  "\ 'args': ['run', 'lint', '--', '-f', 'compact'],
+  "\ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,%W%f: line %l\, col %c\, Warning - %m'
+  "\ }
 let g:neomake_javascript_maker = {
-  \ 'exe': 'npm',
+  \ 'exe': 'yarn',
   \ 'args': ['run', 'lint', '--', '-f', 'compact'],
   \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,%W%f: line %l\, col %c\, Warning - %m'
   \ }
